@@ -1,0 +1,62 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+/* Header styling */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 24px;
+}
+
+/* Form container styling */
+form {
+    margin-top: 20px;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Individual form field containers */
+.form-group {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 10px solid #ddd;
+    border-radius: 20px;
+    background-color: #ffffff;
+}
+
+/* Input, select, and button spacing */
+input[type="text"], 
+select, 
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Label styling */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Radio buttons inline styling */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.radio-group input {
+    margin-right: 5px;
+}
