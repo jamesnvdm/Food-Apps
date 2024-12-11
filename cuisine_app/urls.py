@@ -18,8 +18,10 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 
+app_name = "cuisine_app"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('result/', views.result, name='result')
+    #path('result/', views.result, name='result'),
+    path('chatgpt-proxy/', views.chatgpt_proxy, name='chatgpt_proxy')
 ]

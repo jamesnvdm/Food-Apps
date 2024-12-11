@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF 8">
+    <meta name="viewport" content="width=device-width, initial_scale=1.0">
+    <title>Amazing Recipe Generator</title>
+    <link rel="stylesheet" href= "{ % static 'css/styles.css' %}">
+</head>
+<body>
+    <h3>
+        Fill in the form to generate your ideal recipe
+    </h3>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Select your desired cuisine:</label>
+            <input type="radio" id="italian" name="cuisine" value="italian">
+            <label for="italian">Italian</label>
+            <input type="radio" id="british" name="cuisine" value="british">
+            <label for="british">Classic British</label>
+            <input type="radio" id="thai" name="cuisine" value="thai">
+            <label for="thai">Thai</label>
+            <input type="radio" id="other" name="cuisine" value="other">
+            <label for="other">Other</label>
+        </div>
+
+        <div class="form-group">
+        <label for="experience">Select your cheffy experience:</label>
+            <select id="dropdown" name="experience">
+                <option value="Beginner">Beginner</option>
+                <option value="Decent">Decent</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Total badass">Total badass</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="text-box" name="comments" placeholder="Additional notes/comments?">
+        </div>
+
+        <div class="form-group">
+            <button type="submit">Get the recipe!</button>
+        </div>
+    </form>
+
+    <div class="result-container">
+        <p><strong>Cuisine:</strong> {{cuisine}} </p>
+        <p><strong>Experience:</strong> {{experience}} </p>
+        <p><strong>Comments:</strong> {{comments}} </p>
+    </div>
+</body>
+</html>

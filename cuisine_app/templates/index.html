@@ -4,29 +4,31 @@
     <meta charset="UTF 8">
     <meta name="viewport" content="width=device-width, initial_scale=1.0">
     <title>Amazing Recipe Generator</title>
-    <link rel="stylesheet" href= "{ % static 'css/styles.css' %}">
+    {% load static %}
+    <link rel="stylesheet" href= "{% static 'css/styles.css' %}">
+    <script src="static/script.js"></script>
 </head>
 <body>
     <h3>
-        Fill in the form to generate your ideal recipe
+        Fill in the form below to generate your ideal recipe
     </h3>
-    <form action="" method="POST">
+    <form action="" method="POST" id="chatForm">
         {% csrf_token %}
         <div class="form-group">
-            <label>Select your desired cuisine:</label>
-            <input type="radio" id="italian" name="cuisine" value="italian">
-            <label for="italian">Italian</label>
-            <input type="radio" id="british" name="cuisine" value="british">
-            <label for="british">Classic British</label>
-            <input type="radio" id="thai" name="cuisine" value="thai">
-            <label for="thai">Thai</label>
-            <input type="radio" id="other" name="cuisine" value="other">
-            <label for="other">Other</label>
+            <label for="cuisine">Select a cuisine:</label>
+            <select id="cuisine">
+                <label>Select your desired cuisine:</label>
+                <option value="English">English</option>
+                <option value="English">Indian</option>
+                <option value="English">Chinese</option>
+                <option value="English">Thai</option>
+                <option value="English">South African</option>
+            </select>
         </div>
 
         <div class="form-group">
         <label for="experience">Select your cheffy experience:</label>
-            <select id="dropdown" name="experience">
+            <select id="experience" name="experience">
                 <option value="Beginner">Beginner</option>
                 <option value="Decent">Decent</option>
                 <option value="Intermediate">Intermediate</option>
@@ -35,18 +37,14 @@
         </div>
 
         <div class="form-group">
-            <input type="text" id="text-box" name="comments" placeholder="Additional notes/comments?">
+            <input type="text" id="comments" name="comments" placeholder="Additional notes/comments?">
         </div>
 
         <div class="form-group">
             <button type="submit">Get the recipe!</button>
         </div>
     </form>
-
-    <div class="result-container">
-        <p><strong>Cuisine:</strong> {{cuisine}} </p>
-        <p><strong>Experience:</strong> {{experience}} </p>
-        <p><strong>Comments:</strong> {{comments}} </p>
-    </div>
+ 
+    <div class="result-container" id="result"></div>
 </body>
 </html>
