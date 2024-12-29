@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         );
 
     // Send request to Django proxy
-    fetch("http://127.0.0.1:8000/chatgpt-proxy/", {
+    fetch("http://3.8.121.237:8000/chatgpt-proxy/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
