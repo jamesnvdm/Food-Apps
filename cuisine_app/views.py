@@ -7,7 +7,8 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from decouple import config
 
-openai.api_key = config("API_KEY")
+#openai.api_key = config("API_KEY")
+openai.api_key = ''
 
 def index(request):
     if request.method == "POST":
@@ -23,21 +24,6 @@ def index(request):
         })
     
     return render(request, 'index.html')
-
-# Define a function to interact with ChatGPT
-def chat_with_gpt(request):
-    data = request.body
-    try:
-        # Make the API call
-        response = openai.ChatCompletion.create(
-            model="gpt-4",  # Choose the model (e.g., "gpt-4" or "gpt-3.5-turbo")
-            messages=[{"role": "user", "content": 'What is the capital of Bolivia?'}],
-            temperature=0.7,  # Adjust creativity (0-1)
-        )
-        # Extract and return the response text
-        return response['choices'][0]['message']['content'].strip()
-    except Exception as e:
-        return f"An error occurred: {e}"
     
 @csrf_exempt
 def chatgpt_proxy(request):
