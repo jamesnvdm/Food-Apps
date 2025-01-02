@@ -17,7 +17,6 @@
         <div class="form-group">
             <label for="cuisine">Select a cuisine:</label>
             <select id="cuisine">
-                <label>Select your desired cuisine:</label>
                 <option value="English">English</option>
                 <option value="Indian">Indian</option>
                 <option value="Chinese">Chinese</option>
@@ -44,6 +43,11 @@
             <button type="submit" id="submitButton">Get the recipe!</button>
         </div>
     </form>
+
+    <div id="loading-indicator">
+        <div class="spinner"></div>
+        Loading your recipe! Please wait...
+    </div>
 
     <div class="result-container" id="richTextField" contenteditable="false">
         <p name="result"></p>
