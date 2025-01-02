@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const button = document.getElementById('submitButton');
         const resetButton = document.getElementById('resetButton');
         const resetForm = document.getElementById('reset');
-        console.log(resetForm);
-        var resultField = document.querySelector('p');
+        var resultField = document.getElementById('richTextField');
+        var processingRequest = false;
 
-        // Text to indicate that response is loading
-        resultField.innerHTML = "Fetching your response! Please wait";
+        // Display loading message whilt request being executed
+        //showLoading();
 
         // Disable submit button whilst processing response
         button.disabled = true;
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return data.text(); // Display response to the user
         })
         .then((data) => {
-            resultField.innerHTML = data.replace('```html', '');
+            resultField.innerHTML = data.replace('```html', '').replace('```', '');
 
             // Allow the option to reset the page once recipe displayed
             resetForm.hidden = false;
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function refreshPage() {
     var button = document.getElementById('submitButton');
-    var resultField = document.querySelector('p');
+    var resultField = document.getElementById('richTextField');
     var resetForm = document.getElementById('reset');
     var experience = document.getElementById('experience');
     var comments = document.getElementById('comments');
@@ -77,4 +77,15 @@ function refreshPage() {
     comments.value = '';
     experience.value = 'Beginner';
     cuisine.value = 'English';
+}
+
+function showLoading() {
+    loadingIndicator = document.getElementById('loading-indicator');
+    loadingIndicator.style.display = 'block';
+}
+
+function hideLoading() {
+    loadingIndicator = document.getElementById('loading-indicator');
+    console.log(loadingIndicator);
+    loadingIndicator.style.display = 'none';
 }
